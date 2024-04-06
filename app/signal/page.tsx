@@ -37,7 +37,7 @@ const projects = [
   },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(" ");
 }
 
