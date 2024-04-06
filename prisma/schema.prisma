@@ -24,7 +24,7 @@ model CareReceiver {
   id        Int      @id @default(autoincrement())
   firstname String
   lastname  String
-  age       Datetime 
+  age       DateTime 
   createdAt DateTime @default(now())
 
 }
