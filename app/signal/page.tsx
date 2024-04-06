@@ -24,13 +24,13 @@ const projects = [
     bgColor: "bg-purple-600",
   },
   {
-    name: "Chûte",
+    name: "Souffrance Physique",
     initials: "T",
     href: "#",
     bgColor: "bg-yellow-500",
   },
   {
-    name: "Souffrance Psychique",
+    name: "Changements de Comportements",
     initials: "RC",
     href: "#",
     bgColor: "bg-green-500",
