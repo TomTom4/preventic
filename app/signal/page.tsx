@@ -30,7 +30,7 @@ const projects = [
     bgColor: "bg-yellow-500",
   },
   {
-    name: "Changements de Comportements",
+    name: "Changement de Comportements",
     initials: "RC",
     href: "#",
     bgColor: "bg-green-500",
