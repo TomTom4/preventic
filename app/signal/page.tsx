@@ -1,38 +1,28 @@
-import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
-import CategoryCard from "./_components/CategoryCard";
-/**
-export default function Signal() {
-  return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p> hello from signal </p>
-      <CategoryCard value="Nutrition" id={1} />
-    </div>
-  );
-}
- */
+import Link from "next/link";
+
 const projects = [
   {
     name: "Nutrition",
     initials: "N",
-    href: "#",
+    href: "/signal/item",
     bgColor: "bg-pink-600",
   },
   {
     name: "Médicaments",
     initials: "CD",
-    href: "#",
+    href: "/signal/item",
     bgColor: "bg-purple-600",
   },
   {
     name: "Souffrance Physique",
     initials: "T",
-    href: "#",
+    href: "/signal/item",
     bgColor: "bg-yellow-500",
   },
   {
     name: "Changement de Comportements",
     initials: "RC",
-    href: "#",
+    href: "/signal/item",
     bgColor: "bg-green-500",
   },
 ];
@@ -41,7 +31,7 @@ function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function SignalPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 className="text-sm font-medium text-gray-500">
@@ -66,12 +56,12 @@ export default function Example() {
             </div>
             <div className="flex flex-1 items-center justify-between h-16 truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
               <div className="flex-1 truncate px-4 py-2 text-sm">
-                <a
+                <Link
                   href={project.href}
                   className="font-medium text-gray-900 hover:text-gray-600"
                 >
                   {project.name}
-                </a>
+                </Link>
               </div>
             </div>
           </li>
