@@ -9,6 +9,7 @@ datasource db {
   provider  = "postgresql"
   url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  relationMode = "prisma"
 }
 
 model users {
@@ -19,15 +20,16 @@ model users {
   createdAt DateTime @default(now())
 }
 
-model care_receiver {
+model CareReceiver {
   id        Int      @id @default(autoincrement())
   firstname String
   lastname  String
   age       Datetime 
   createdAt DateTime @default(now())
+
 }
 
-model category {
+model Category {
   id                  Int      @id @default(autoincrement())
   value               String
   important_threshold Int
@@ -38,6 +40,8 @@ model category {
 model Item {
   id                  Int      @id @default(autoincrement())
   value               String
+  category   Category   @relation(fields: [catId], references: [id])
+  catId Int    @unique
 }
 
 model Event {
@@ -45,4 +49,8 @@ model Event {
   createdAt   DateTime @default(now())
   observation String
   handled     Boolean @default(false)
+  item   Item   @relation(fields: [itemId], references: [id])
+  itemId Int    @unique
+  careReceiver   CareReceiver   @relation(fields: [careId], references: [id])
+  careId Int    @unique
 }
