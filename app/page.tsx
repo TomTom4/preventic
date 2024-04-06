@@ -4,8 +4,9 @@ import { Suspense } from "react";
 import Table from "@/components/table";
 import TablePlaceholder from "@/components/table-placeholder";
 import ExpandingArrow from "@/components/expanding-arrow";
-import GlobalCards from "@/components/dash_component/global_cards";
+import CountCard from "@/app/_components/CountCard";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+
 const data = [
   { category: "Denutrition", counted: 2 },
   { category: "Medicaments", counted: 5 },
@@ -19,10 +20,10 @@ export default function Home() {
       <h1 className=" pt-8 text-center font-bold text-2xl">
         Patient: Identifiant{" "}
       </h1>
-      <div className="bg-white px-4 py-5 sm:px-6">
+      <div className="mx-auto bg-white px-4 py-5 sm:px-6">
         <div className=" w-full grid grid-cols-2 gap-4 place-content-around">
           {data.map((cat, index) => (
-            <GlobalCards
+            <CountCard
               key={index}
               category={cat.category}
               counted={cat.counted}
