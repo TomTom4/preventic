@@ -11,11 +11,10 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model cared_received {
+model users {
   id        Int      @id @default(autoincrement())
-  firstname      String
-  lastname      String
+  name      String
   email     String   @unique
   image     String
-  #createdAt DateTime @default(now())
+  createdAt DateTime @default(now())
 }
