@@ -23,7 +23,7 @@ export default function TextArea({
           {label}
         </label>
         <textarea
-          rows={3}
+          rows={8}
           name="comment"
           id="comment"
           className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 
