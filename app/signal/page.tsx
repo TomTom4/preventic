@@ -4,25 +4,25 @@ const projects = [
   {
     name: "Nutrition",
     initials: "N",
-    href: "/signal/item",
+    href: "/signal/nutrition",
     bgColor: "bg-pink-600",
   },
   {
     name: "Médicaments",
     initials: "CD",
-    href: "/signal/item",
+    href: "/signal/medicaments",
     bgColor: "bg-purple-600",
   },
   {
     name: "Souffrance Physique",
     initials: "T",
-    href: "/signal/item",
+    href: "/signal/souffrance-physique",
     bgColor: "bg-yellow-500",
   },
   {
     name: "Changement de Comportements",
     initials: "RC",
-    href: "/signal/item",
+    href: "/signal/changement-de-comportements",
     bgColor: "bg-green-500",
   },
 ];
