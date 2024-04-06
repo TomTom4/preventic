@@ -6,15 +6,54 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider     = "postgresql"
+  url          = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl    = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  relationMode = "prisma"
 }
 
-model cared_received {
+model users {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
   image     String
   createdAt DateTime @default(now())
+}
+
+model CareReceiver {
+  id        Int      @id @default(autoincrement())
+  firstname String
+  lastname  String
+  age       DateTime
+  createdAt DateTime @default(now())
+
+  Event Event?
+}
+
+model Category {
+  id                  Int    @id @default(autoincrement())
+  value               String
+  important_threshold Int
+  critical_threshold  Int
+
+  Item Item?
+}
+
+model Item {
+  id       Int      @id @default(autoincrement())
+  value    String
+  category Category @relation(fields: [catId], references: [id])
+  catId    Int      @unique
+  Event    Event?
+}
+
+model Event {
+  id           Int          @id @default(autoincrement())
+  createdAt    DateTime     @default(now())
+  observation  String
+  handled      Boolean      @default(false)
+  item         Item         @relation(fields: [itemId], references: [id])
+  itemId       Int          @unique
+  careReceiver CareReceiver @relation(fields: [careId], references: [id])
+  careId       Int          @unique
 }
