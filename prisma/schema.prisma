@@ -36,8 +36,8 @@ model Category {
   value               String
   important_threshold Int
   critical_threshold  Int
-
-  Item Item?
+  icone               String
+  Item                Item?
 }
 
 model Item {
