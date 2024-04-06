@@ -18,3 +18,31 @@ model users {
   image     String
   createdAt DateTime @default(now())
 }
+
+model care_receiver {
+  id        Int      @id @default(autoincrement())
+  firstname String
+  lastname  String
+  age       Datetime 
+  createdAt DateTime @default(now())
+}
+
+model category {
+  id                  Int      @id @default(autoincrement())
+  value               String
+  important_threshold Int
+  critical_threshold  Int
+
+}
+
+model Item {
+  id                  Int      @id @default(autoincrement())
+  value               String
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  observation String
+  handled     Boolean @default(false)
+}
