@@ -12,7 +12,7 @@ export default function SelectDropDown({
 }: {
   items: Array<{ id: number; value: string; catId: number }>;
 }) {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState([{value:null, id:null, catId: null}]);
   console.log(items);
 
   return (
