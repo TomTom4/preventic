@@ -32,15 +32,21 @@ async function main() {
           "https://images.ctfassets.net/e5382hct74si/4QEuVLNyZUg5X6X4cW4pVH/eb7cd219e21b29ae976277871cd5ca4b/profile.jpg",
       },
     }),
-    await prisma.careReceiver.upsert({
-      where: { email: "albertdupontel@email.com" },
-      update: {},
-      create: {
-        firstname: "Albert",
-        lastname: "Dupontel",
-        email: "albertdupontel@email.com",
-        age: new Date(1935, 1, 1),
-      },
+    await prisma.category.create({
+      data: {
+        value: "NUTRITION",
+        important_threshold: 1,
+        critical_threshold: 3,
+        icone: "./publics/assets",
+        items: {
+          create: [
+            {value: "Diminution des quantitiés ingerées alimentation et hydratation (repas laissé, refus…)"},
+            {value: "Augmentation  des quantitiés ingerées"},
+            {value: "Produit perimé, frigo plein ou vide, poubelle pleine ou vide"},
+            {value: "Mastication, qualité des dents et appareil dentaire"}
+          ]
+        },
+      }
     }),
   ]);
   console.log(response);

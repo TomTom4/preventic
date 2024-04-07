@@ -28,7 +28,7 @@ model CareReceiver {
   age       DateTime
   createdAt DateTime @default(now())
 
-  Event Event?
+  events Event[]
 }
 
 model Category {
@@ -36,16 +36,16 @@ model Category {
   value               String
   important_threshold Int
   critical_threshold  Int
-
-  Item Item?
+  icone               String
+  items                Item[]
 }
 
 model Item {
   id       Int      @id @default(autoincrement())
   value    String
   category Category @relation(fields: [catId], references: [id])
-  catId    Int      @unique
-  Event    Event?
+  catId    Int      
+  events    Event[]
 }
 
 model Event {
@@ -54,7 +54,7 @@ model Event {
   observation  String
   handled      Boolean      @default(false)
   item         Item         @relation(fields: [itemId], references: [id])
-  itemId       Int          @unique
+  itemId       Int          
   careReceiver CareReceiver @relation(fields: [careId], references: [id])
-  careId       Int          @unique
+  careId       Int          
 }
