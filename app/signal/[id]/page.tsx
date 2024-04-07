@@ -1,7 +1,7 @@
-import SelectDropDown from "./_components/SelectDropDown";
 import TextArea from "./_components/TextArea";
 import Link from "next/link";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import NutritionItems from "./_components/NutritionItems";
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
@@ -10,7 +10,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <h1 className="text-lg font-medium text-center">
           Évenement: <span className="font-bold">{params.id}</span>
         </h1>
-        <SelectDropDown />
+        <NutritionItems />
         <TextArea
           label="Observations"
           placeholder="vos observations (facultatif)"
