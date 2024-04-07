@@ -8,10 +8,30 @@ import CountCard from "@/app/_components/CountCard";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 const data = [
-  { category: "Denutrition", counted: 2 },
-  { category: "Medicaments", counted: 5 },
-  { category: "Chutes", counted: 2 },
-  { category: "Souffrance", counted: 3 },
+  {
+    category: "Nutrition",
+    counted: 2,
+    criticalThreshold: 2,
+    importantThreshold: 1,
+  },
+  {
+    category: "Medicaments",
+    counted: 0,
+    criticalThreshold: 2,
+    importantThreshold: 1,
+  },
+  {
+    category: "Chutes",
+    counted: 0,
+    criticalThreshold: 2,
+    importantThreshold: 1,
+  },
+  {
+    category: "Souffrance",
+    counted: 0,
+    criticalThreshold: 2,
+    importantThreshold: 1,
+  },
 ];
 
 export default function Home() {
@@ -27,6 +47,8 @@ export default function Home() {
               key={index}
               category={cat.category}
               counted={cat.counted}
+              criticalThreshold={cat.criticalThreshold}
+              importantThreshold={cat.importantThreshold}
             />
           ))}
         </div>
