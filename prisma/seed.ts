@@ -32,22 +32,99 @@ async function main() {
           "https://images.ctfassets.net/e5382hct74si/4QEuVLNyZUg5X6X4cW4pVH/eb7cd219e21b29ae976277871cd5ca4b/profile.jpg",
       },
     }),
-    await prisma.category.create({
-      data: {
+    /*await prisma.careReceiver.upsert({
+      where: { email: "albertdupontel@email.com" },
+      update: {},
+      create: {
+        firstname: "Albert",
+        lastname: "Dupontel",
+        email: "albertdupontel@email.com",
+        age: new Date(1935, 1, 1),
+      },
+    }),
+    await prisma.item.deleteMany({}),
+    await prisma.category.deleteMany({}),*/
+    await prisma.category.upsert({
+      where: {id:1},
+      update:{},
+      create: {
         value: "NUTRITION",
         important_threshold: 1,
         critical_threshold: 3,
-        icone: "./publics/assets",
+        icone: "/publics/assets",
         items: {
           create: [
-            {value: "Diminution des quantitiés ingerées alimentation et hydratation (repas laissé, refus…)"},
-            {value: "Augmentation  des quantitiés ingerées"},
-            {value: "Produit perimé, frigo plein ou vide, poubelle pleine ou vide"},
-            {value: "Mastication, qualité des dents et appareil dentaire"}
+            {value: "Diminution de l'alimentation"},
+            {value: "Arret/refus de l'alimentation"},
+            {value: "Diminution de l'hydratation"},
+            {value: "Arret/refus de l'hydratation"},
+            {value: "Poubelle pleine / repas jeté"},
+            {value: "Frigo plein / perimé"},
+            {value: "Mastication, probleme dentaire"},
           ]
         },
       }
     }),
+    await prisma.category.upsert({
+      where: {id:2},
+      update:{},
+      create: {
+        value: "MEDICAMENTS",
+        important_threshold: 1,
+        critical_threshold: 3,
+        icone: "/publics/assets",
+        items: {
+          create: [
+            {value: "Non utilisation  du pilulier"},
+            {value: "Mauvaise utilisation  du pilulier"},
+            {value: "Auto-medication "},
+            {value: "Traitement supplementaire pour episode aigu ou sortie d'hopital"},
+            {value: "Plainte par rapport aux medicaments (forme, etc..)"},
+            {value: "Stockage de medicaments, medicaments perimés, "},
+          ]
+        },
+      }
+    }),
+    await prisma.category.upsert({
+      where: {id:3},
+      update:{},
+      create: {
+        value: "SOUFRANCE PHYSIQUE",
+        important_threshold: 1,
+        critical_threshold: 3,
+        icone: "/publics/assets",
+        items: {
+          create: [
+            {value: "Trouble de l'equilibre et de la marche"},
+            {value: "Ne sort plus"},
+            {value: "Surconsomation Alcool et/ou produit nocifs"},
+            {value: "Refus d'aide technique (deambulateur, lunette, …)"},
+            {value: "Equipement inadapté (canne, lunette, chaussure..)"},
+            {value: "Logement inadapté et/ou mal entretenu"},
+          ]
+        },
+      }
+    }),
+    await prisma.category.upsert({
+      where: {id:4},
+      update:{},
+      create: {
+        value: "CHANGEMENT DE COMPORTEMENT",
+        important_threshold: 1,
+        critical_threshold: 3,
+        icone: "/publics/assets",
+        items: {
+          create: [
+            {value: "Repli sur soi / desinvestissement"},
+            {value: "Trouble d'humeur (aggressivité, tristesse, envie de mourir..)"},
+            {value: "Evenement important (date anniversaire, deces d'un proche,..)"},
+            {value: "Deambulation"},
+            {value: "Animal de compagnie delaissé"},
+          ]
+        },
+      }
+    }),
+  
   ]);
   console.log(response);
 }
