@@ -8,7 +8,8 @@ export default function Page({ params }: { params: { id: string } }) {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-4/6">
       <div className="flex flex-col justify-between h-full">
         <h1 className="text-lg font-medium text-center">
-          Évenement: <span className="font-bold">{params.id}</span>
+          Évenement:{" "}
+          <span className="font-bold">{params.id.toUpperCase()}</span>
         </h1>
         <NutritionItems />
         <TextArea
