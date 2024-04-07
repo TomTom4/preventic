@@ -37,9 +37,7 @@ const data = [
 export default function Home() {
   return (
     <main className="flex flex-col justify-between h-4/6 mx-4">
-      <h1 className=" pt-8 text-center font-bold text-2xl">
-        Patient: Identifiant{" "}
-      </h1>
+      <h1 className=" pt-8 text-center font-bold text-2xl">Patient: Robert</h1>
       <div className="mx-auto bg-white px-4 py-5 sm:px-6">
         <div className=" w-full grid grid-cols-2 gap-4 place-content-around">
           {data.map((cat, index) => (
