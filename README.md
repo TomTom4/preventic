@@ -1,3 +1,5 @@
+You can visualize Preventic here: [preventic app](https://preventic.vercel.app/)
+
 ---
 name: Vercel Postgres + Prisma Next.js Starter
 slug: postgres-prisma
